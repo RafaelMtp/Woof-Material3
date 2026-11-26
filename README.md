@@ -1,29 +1,18 @@
-Woof App
-==================================
+# Woof · Material 3
 
-The Woof app is a list of dog photos with information about them including their name, age, and favorite activity. This app also uses Material Design to create a beautiful app experience for the user.
+Práctica de temas con Jetpack Compose. La pantalla muestra nueve perros con su foto, nombre y edad. El tema sigue la configuración clara u oscura del dispositivo.
 
-Introduction
-------------
+## Ejecutar en Android Studio
 
-This is the solution code for the Material Theming with Jetpack Compose Codelab. This project is an opportunity for you to learn Material3 and reinforce the concepts you've learned so far in Android Basics with Compose.
+1. Abre la carpeta que contiene `settings.gradle.kts` y espera a que termine la sincronización.
+2. Usa JDK 17 para Gradle e instala Android SDK 34 si Android Studio lo solicita.
+3. Selecciona un emulador con API 24 o posterior y pulsa Run ▶.
+4. Desliza hasta Leroy. Cambia el tema oscuro desde los ajustes del dispositivo y vuelve a la app para comparar las tarjetas.
 
-Pre-requisites
---------------
+En un dispositivo configurado en español, las edades se presentan en años. La barra usa Abril Fatface y las tarjetas usan Montserrat. Las fotos se recortan en círculo. Los colores y las formas se definen en `ui/theme`.
 
-- Rows/Columns
-- Modifiers
-- Scaffold
-- Adding images
-- Button click handlers
-- Functions
-- Classes
-- Lists
-- App architecture
+## Pruebas
 
-Getting Started
----------------
+Desde la carpeta del proyecto, ejecuta `./gradlew testDebugUnitTest` (en Windows, `.\gradlew.bat testDebugUnitTest`). Las pruebas abren MainActivity con Robolectric, comprueban nombres y edades, capturan la lista y se desplazan al último perro. Las imágenes quedan en `app/build/evidencias/`.
 
-1. Download the project
-2. Open the project in Android Studio
-3. Run the project
+Adaptación didáctica de la [rama material de Woof](https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof/tree/material), con sus recursos, fuentes y licencia. [Instrucciones de la práctica](https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming?hl=es-419).
