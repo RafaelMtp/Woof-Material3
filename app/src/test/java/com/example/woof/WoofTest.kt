@@ -1,7 +1,7 @@
 package com.example.woof
 
 import android.graphics.Bitmap
-import androidx.compose.ui.graphics.asAndroidBitmap
+import android.graphics.Canvas
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import org.junit.Rule
@@ -27,7 +27,12 @@ class WoofTest {
         ui.onNodeWithText("Woof").assertIsDisplayed()
         ui.onNodeWithText("Koda").assertIsDisplayed()
         ui.onNodeWithText("16 años").assertIsDisplayed()
-        val imagen = ui.onRoot().captureToImage().asAndroidBitmap()
+        val imagen = ui.runOnIdle {
+            val vista = ui.activity.window.decorView
+            val bitmap = Bitmap.createBitmap(vista.width, vista.height, Bitmap.Config.ARGB_8888)
+            vista.draw(Canvas(bitmap))
+            bitmap
+        }
         val archivo = File("build/evidencias/$tema.png")
         archivo.parentFile.mkdirs()
         archivo.outputStream().use { imagen.compress(Bitmap.CompressFormat.PNG, 100, it) }
